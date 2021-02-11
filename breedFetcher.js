@@ -4,12 +4,11 @@ const command = process.argv.slice(2)
 const path = command[0]
 
 //this is a get request
-const fetchBreedDescription = function() {
 request(`https://api.thecatapi.com/v1/images/search?breed_ids=${path}`, (error, response, body) => {
   if (error || response.statusCode !== 200) {
     console.log('error:', error);
     console.log('status code:', response.statusCode)
-    return 
+    return;
   }
 
   const data = JSON.parse(body);
@@ -21,6 +20,4 @@ request(`https://api.thecatapi.com/v1/images/search?breed_ids=${path}`, (error, 
     return;
   }
 })
-}
-
 
